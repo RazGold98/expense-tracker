@@ -1,0 +1,270 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  min-height: 100vh;
+  background: #111827;
+  color: #f9fafb;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.app-shell {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+}
+
+section {
+  background: #1f2933;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  border: 1px solid #374151;
+}
+
+section h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+
+section label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  color: #9ca3af;
+  gap: 0.25rem;
+}
+
+#add-expense form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem 1rem;
+  align-items: flex-end;
+}
+
+input,
+select {
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #4b5563;
+  background: #111827;
+  color: #f9fafb;
+  font-size: 0.9rem;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+button {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+#clear-all {
+  align-self: flex-start;
+}
+
+#summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 4px solid #22c55e;
+}
+
+#summary h2 {
+  margin: 0;
+}
+
+#total {
+  margin: 0;
+  font-weight: 600;
+}
+
+#add-salary {
+  max-height: 500px;
+  transition:
+    opacity 0.3s ease,
+    max-height 0.3s ease,
+    margin 0.3s ease,
+    padding-top 0.3s ease,
+    padding-bottom 0.3s ease;
+}
+
+#add-salary.fade {
+  opacity: 0;
+  max-height: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+/* ---------- FILTERS ---------- */
+
+.filters {
+  margin: 0.25rem 0 0.75rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid #4b5563;
+  background: #111827;
+  color: #f9fafb;
+  font-size: 0.8rem;
+}
+
+.filter-btn.filter-active {
+  background: #22c55e;
+  border-color: #22c55e;
+  color: #022c22;
+}
+
+/* ---------- EXPENSES LIST ---------- */
+
+#expenses-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 320px;
+  overflow-y: auto;
+  margin-top: 0.4rem;
+}
+
+#expenses-list li {
+  display: flex;
+  align-items: center;
+  background: #111827;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #374151;
+  font-size: 0.9rem;
+  gap: 0.4rem;
+}
+
+#expenses-list li button {
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  background: #b91c1c;
+  margin-top: 0;
+}
+
+#expenses-list li button:first-of-type {
+  margin-left: auto;
+}
+
+/* ---------- MOBILE RESPONSIVE ---------- */
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem 0.5rem;
+  }
+
+  section {
+    padding: 0.9rem 1rem;
+  }
+
+  #add-expense form {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+}
+
+/* ---------- MODAL (GLOBAL) ---------- */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #1f2933;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  border: 1px solid #4b5563;
+  min-width: 280px;
+  max-width: 360px;
+}
+
+.modal-content h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.05rem;
+}
+
+.modal-content form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  color: #9ca3af;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-content input {
+  padding: 0.35rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #4b5563;
+  background: #111827;
+  color: #f9fafb;
+  font-size: 0.9rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+#edit-cancel {
+  background: #4b5563;
+}

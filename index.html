@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <h1>Expense Tracker</h1>
+      <section id="add-salary">
+        <h2>Plan your month</h2>
+        <form id="setup-form">
+          <label>
+            Salary
+            <input type="text" id="salary" required />
+          </label>
+
+          <label>
+            Saving plan
+            <input type="text" id="saving" required />
+          </label>
+
+          <button type="submit">Add Salary</button>
+        </form>
+      </section>
+
+      <section id="add-expense">
+        <h2>Add New Expense</h2>
+        <form id="expense-form">
+          <label>
+            Title
+            <input type="text" id="title" required />
+          </label>
+
+          <label>
+            Amount (₪)
+            <input type="number" id="amount" min="0" step="0.01" required />
+          </label>
+
+          <label>
+            Date
+            <input type="date" id="date" required />
+          </label>
+
+          <label>
+            Category
+            <select id="category">
+              <option value="food">Food</option>
+              <option value="rent">Rent</option>
+              <option value="transport">Transport</option>
+              <option value="fun">Fun</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+
+          <button type="submit">Add Expense</button>
+        </form>
+      </section>
+
+      <section id="summary">
+        <h2>Summary</h2>
+        <p id="total">Total: 0 ₪</p>
+      </section>
+
+      <section id="saving-status">
+        <h2>Saving Status:</h2>
+        <p id="status">Total: 0 ₪</p>
+      </section>
+
+      <button id="clear-all">Clear All</button>
+
+      <section id="list">
+        <h2>Expenses</h2>
+        <div class="filters">
+          <button id="all-filter" class="filter-btn">All</button>
+          <button id="food-filter" class="filter-btn">Food</button>
+          <button id="rent-filter" class="filter-btn">Rent</button>
+          <button id="transport-filter" class="filter-btn">Transport</button>
+          <button id="fun-filter" class="filter-btn">Fun</button>
+          <button id="other-filter" class="filter-btn">Other</button>
+        </div>
+        <ul id="expenses-list"></ul>
+      </section>
+    
+      <div id="edit-modal" class="modal hidden">
+        <div class="modal-content">
+          <h3>Edit Expense</h3>
+          <form id="edit-form">
+            <label>
+              Title
+              <input type="text" id="edit-title" required />
+            </label>
+
+            <label>
+              Amount (₪)
+              <input
+                type="number"
+                id="edit-amount"
+                min="0"
+                step="0.01"
+                required
+              />
+            </label>
+
+            <label>
+              Date
+              <input type="date" id="edit-date" required />
+            </label>
+
+            <div class="modal-actions">
+              <button type="button" id="edit-cancel">Cancel</button>
+              <button type="submit">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
