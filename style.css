@@ -1,5 +1,4 @@
 /* ---------- RESET בסיסי ---------- */
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,7 +6,6 @@
 }
 
 /* ---------- BODY & LAYOUT ---------- */
-
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   min-height: 100vh;
@@ -30,7 +28,6 @@ body {
 }
 
 /* ---------- TITLES & SECTIONS ---------- */
-
 h1 {
   text-align: center;
   margin-bottom: 0.5rem;
@@ -58,7 +55,6 @@ section label {
 }
 
 /* ---------- FORMS ---------- */
-
 #add-expense form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -83,7 +79,6 @@ select:focus {
 }
 
 /* ---------- BUTTONS ---------- */
-
 button {
   padding: 0.45rem 0.9rem;
   border-radius: 999px;
@@ -104,7 +99,6 @@ button:hover {
 }
 
 /* ---------- SUMMARY ---------- */
-
 #summary {
   display: flex;
   justify-content: space-between;
@@ -143,7 +137,6 @@ button:hover {
 }
 
 /* ---------- FILTERS ---------- */
-
 .filters {
   margin: 0.25rem 0 0.75rem 0;
   display: flex;
@@ -167,7 +160,6 @@ button:hover {
 }
 
 /* ---------- EXPENSES LIST ---------- */
-
 #expenses-list {
   list-style: none;
   display: flex;
@@ -200,58 +192,57 @@ button:hover {
   margin-left: auto;
 }
 
-/* ---------- MOBILE (עד 600px) ---------- */
-
-@media (max-width: 600px) {
+/* ---------- MOBILE (עד 768px) ---------- */
+@media (max-width: 768px) {
   body {
-    padding: 1rem 0.5rem;
+    padding-top: 1rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    align-items: flex-start; /* לא למרכז לגובה */
   }
 
   .app-shell {
-    gap: 1rem;
+    max-width: 100%;
+    gap: 0.9rem;
   }
 
   section {
-    padding: 0.9rem 1rem;
+    padding: 0.9rem 0.8rem;
   }
 
   h1 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    margin-bottom: 0.25rem;
   }
 
-  /* טופס הוצאה לעמודה אחת */
+  /* הטופס – טור אחד */
   #add-expense form {
     grid-template-columns: 1fr;
   }
 
-  /* כפתורים מלאי־רוחב במובייל */
+  /* כפתורים מלאי רוחב */
   #add-expense button[type="submit"],
   #clear-all {
     width: 100%;
     text-align: center;
   }
 
-  /* Summary יותר נוח לקריאה */
+  /* Summary – טור */
   #summary {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
+    gap: 0.35rem;
   }
 
+  /* כל הוצאה – טור */
   #expenses-list li {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.25rem;
   }
-
-  .modal-content {
-    width: 90%;
-    max-width: 400px;
-  }
 }
 
 /* ---------- MODAL ---------- */
-
 .modal {
   position: fixed;
   inset: 0;
