@@ -1,8 +1,12 @@
+/* ---------- RESET בסיסי ---------- */
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
+/* ---------- BODY & LAYOUT ---------- */
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -13,6 +17,7 @@ body {
   justify-content: flex-start;
   align-items: center;
   padding: 2rem 1rem;
+  overflow-x: hidden;
 }
 
 .app-shell {
@@ -23,6 +28,8 @@ body {
   flex-direction: column;
   gap: 1.25rem;
 }
+
+/* ---------- TITLES & SECTIONS ---------- */
 
 h1 {
   text-align: center;
@@ -50,6 +57,8 @@ section label {
   gap: 0.25rem;
 }
 
+/* ---------- FORMS ---------- */
+
 #add-expense form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -73,6 +82,8 @@ select:focus {
   border-color: #2563eb;
 }
 
+/* ---------- BUTTONS ---------- */
+
 button {
   padding: 0.45rem 0.9rem;
   border-radius: 999px;
@@ -92,6 +103,8 @@ button:hover {
   align-self: flex-start;
 }
 
+/* ---------- SUMMARY ---------- */
+
 #summary {
   display: flex;
   justify-content: space-between;
@@ -108,6 +121,7 @@ button:hover {
   font-weight: 600;
 }
 
+/* תיבת המשכורת נעלמת אחרי הגדרה */
 #add-salary {
   max-height: 500px;
   transition:
@@ -186,27 +200,57 @@ button:hover {
   margin-left: auto;
 }
 
-/* ---------- MOBILE RESPONSIVE ---------- */
+/* ---------- MOBILE (עד 600px) ---------- */
 
 @media (max-width: 600px) {
   body {
     padding: 1rem 0.5rem;
   }
 
-  section {
-    padding: 0.9rem 1rem;
+  .app-shell {
+    gap: 1rem;
   }
 
-  #add-expense form {
-    grid-template-columns: 1fr;
+  section {
+    padding: 0.9rem 1rem;
   }
 
   h1 {
     font-size: 1.4rem;
   }
+
+  /* טופס הוצאה לעמודה אחת */
+  #add-expense form {
+    grid-template-columns: 1fr;
+  }
+
+  /* כפתורים מלאי־רוחב במובייל */
+  #add-expense button[type="submit"],
+  #clear-all {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Summary יותר נוח לקריאה */
+  #summary {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  #expenses-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .modal-content {
+    width: 90%;
+    max-width: 400px;
+  }
 }
 
-/* ---------- MODAL (GLOBAL) ---------- */
+/* ---------- MODAL ---------- */
 
 .modal {
   position: fixed;
